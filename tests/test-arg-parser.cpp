@@ -255,6 +255,19 @@ static void test(void) {
     assert(params.speculative.draft.n_max == 123);
 
     {
+        common_params mtp_params;
+        argv = {"binary_name", "--spec-draft-mtp-n-base", "2"};
+        assert(true == common_params_parse(argv.size(), list_str_to_char(argv).data(), mtp_params, LLAMA_EXAMPLE_SPECULATIVE));
+        assert(mtp_params.speculative.draft.n_mtp_base == 2);
+    }
+
+    {
+        common_params mtp_params;
+        argv = {"binary_name", "--spec-draft-mtp-n-base", "-1"};
+        assert(false == common_params_parse(argv.size(), list_str_to_char(argv).data(), mtp_params, LLAMA_EXAMPLE_SPECULATIVE));
+    }
+
+    {
         common_params synth_params;
         argv = {"binary_name", "--spec-synth-len", "3.4"};
         assert(true == common_params_parse(argv.size(), list_str_to_char(argv).data(), synth_params, LLAMA_EXAMPLE_SERVER));

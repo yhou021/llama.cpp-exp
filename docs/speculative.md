@@ -247,6 +247,9 @@ Use exactly one of these options:
 --spec-draft-n-min                      N
                                         minimum number of draft tokens to use for speculative decoding (default: 0)
                                         (env: LLAMA_ARG_SPEC_DRAFT_N_MIN)
+--spec-draft-mtp-n-base                 N
+                                        number of MTP draft tokens to retain before applying p-min (default: 0)
+                                        (env: LLAMA_ARG_SPEC_DRAFT_MTP_N_BASE)
 --spec-draft-p-split, --draft-p-split   P
                                         speculative decoding split probability (default: 0.10)
                                         (env: LLAMA_ARG_SPEC_DRAFT_P_SPLIT)
